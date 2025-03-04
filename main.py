@@ -64,13 +64,13 @@ while True:
     
     for article in articles:
         try:
-            userTag=article.find_element(By.XPATH,'.//div[@data-testid="User-Name"]').text.strip()
+            userTag=article.find_element(By.XPATH,'.//div[@data-testid="User-Name"]').text.strip().replace("\n"," ")
             userTags.append(userTag)
             
             timeStamp=article.find_element(By.XPATH,'.//time').get_attribute('datetime')
             timeStamps.append(timeStamp)
             
-            Tweet=article.find_element(By.XPATH,".//div[@data-testid='tweetText']").text.strip()
+            Tweet=article.find_element(By.XPATH,".//div[@data-testid='tweetText']").text.strip().replace("\n"," ")
             Tweets.append(Tweet)
             
             reply=article.find_element(By.XPATH,".//div/button[@data-testid='reply']").text
